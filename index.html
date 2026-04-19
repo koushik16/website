@@ -100,49 +100,49 @@
                     <h3><i class="fas fa-code"></i> Languages</h3>
                     <ul class="skill-list">
                         <li>Python</li>
-                        <li>SQL</li>
+                        <li>SQL & NoSQL</li>
                         <li>R</li>
+                        <li>Rust</li>
                         <li>C#</li>
-                        <li>JavaScript</li>
+                        <li>C++</li>
+                        <li>Java</li>
                     </ul>
                 </div>
                 <div class="skill-category">
                     <h3><i class="fas fa-robot"></i> ML &amp; AI</h3>
                     <ul class="skill-list">
-                        <li>TensorFlow / Keras</li>
+                        <li>Pandas / NumPy</li>
+                        <li>TensorFlow</li>
                         <li>PyTorch</li>
                         <li>Scikit-learn</li>
-                        <li>XGBoost</li>
+                        <li>Keras</li>
                         <li>Hugging Face Transformers</li>
+                        <li>MNE - Signal Processing</li>
+                        <li>Retrival Augumented Generation - RAG</li>
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h3><i class="fas fa-comments"></i> NLP</h3>
+                    <h3><i class="fas fa-robot"></i> ML &amp; AI</h3>
                     <ul class="skill-list">
-                        <li>BERT / GPT / LLaMA</li>
+                        <li>BERT / GPT / LLaMA / Claude</li>
                         <li>spaCy / NLTK</li>
-                        <li>LangChain &amp; RAG</li>
-                        <li>Named Entity Recognition</li>
-                        <li>Sentiment Analysis</li>
+                        <li>LangChain &amp; LangSmith</li>
+                        <li>NERs &amp; Entity Parsers</li>
+                        <li>Embeddings and Tockenization</li>
+                         <li>Language Models - LLMs/SLMs</li>
+                        <li>Retrival Augumented Generation - RAG</li>
+                        <li>FAISS</li>
                     </ul>
                 </div>
                 <div class="skill-category">
                     <h3><i class="fas fa-database"></i> Data &amp; Cloud</h3>
                     <ul class="skill-list">
-                        <li>Pandas / NumPy</li>
+                        <li>Azure / AWS / GCP</li>
                         <li>Apache Spark</li>
-                        <li>Microsoft Azure</li>
                         <li>Docker</li>
+                        <li>Kubernetes</li>
+                        <li>Distributed Systems - DDP &amp; SLURM</li>
                         <li>REST APIs / FastAPI</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-atom"></i> Quantum</h3>
-                    <ul class="skill-list">
-                        <li>Qiskit</li>
-                        <li>PennyLane</li>
-                        <li>Variational Quantum Circuits</li>
-                        <li>Quantum NLP</li>
                     </ul>
                 </div>
                 <div class="skill-category">
@@ -155,6 +155,17 @@
                         <li>Linux / Bash</li>
                     </ul>
                 </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-atom"></i> Quantum</h3>
+                    <ul class="skill-list">
+                        <li>Qiskit</li>
+                        <li>PennyLane</li>
+                        <li>Variational Quantum Circuits</li>
+                        <li>Quantum AI/NLP</li>
+                        <li>QLSTMs</li>
+                    </ul>
+                </div>
+            
             </div>
         </div>
     </section>
@@ -167,26 +178,62 @@
                 <div class="timeline__item">
                     <div class="timeline__marker"></div>
                     <div class="timeline__content">
-                        <span class="timeline__date">2024 — Present</span>
-                        <h3>Research Assistant — NLP Lab</h3>
-                        <p class="timeline__org">Indiana University</p>
+                        <span class="timeline__date">Jan 2024 — Present</span>
+                        <h3>AI/ML Engineer</h3>
+                        <p class="timeline__org">VervusAI - AIC Inc</p>
                         <ul>
-                            <li>Built quantum NLP classifiers with amplitude and angle encoding, achieving scalable solutions for text classification tasks.</li>
-                            <li>Investigated transformer layer representations to improve contextual understanding in production NLP models.</li>
-                            <li>Optimized parameterized quantum circuits, reducing noise and improving computational efficiency with Qiskit and PennyLane.</li>
+                            <li>Built and deployed a production-grade AI appraisal platform integrating structured property data, document parsing, image validation and LLM-based reasoning workflows, reducing end-to-end valuation time from 7 days to under 2 days while serving 37 enterprise clients.</li>
+                            <li>Designed Scalable inference architecture using FastAPI microservices, Kubernetes (EKS, HPA), and asynchronous pipelines, enabling multi-stage workflows (ingestion → retrieval → reasoning → reporting) with stable performance under concurrent workloads.</li>
+                            <li>Improved reasoning consistency and retrieval quality by combining prompt optimization, PEFT - QLoRA and hybrid model strategies (Claude, GPT-4o, Qwen), enhancing reliability without full model retraining.</li>
+                            <li>Optimized system efficiency through hierarchical caching, context management, and RL-driven prompt tuning, reducing LLM token usage and compute cost by 31% while improving latency and user interaction flow.</li>
+                            <li style="list-style: none; margin-left: -1.2rem;"><strong>Core stack:</strong> AWS Bedrock, Textract, FastAPI, EKS, QLoRA, Qwen</li>
+                            <li style="list-style: none; margin-left: -1.2rem;"><strong>Focus:</strong> Prompt optimization, RL-based tuning, compliance and audit workflows</li>                        </div> 
+                    </div>
+                <div class="timeline__item">
+                    <div class="timeline__marker"></div>
+                    <div class="timeline__content">
+                    <span class="timeline__date">Jan 2024 — Jul 2025</span>
+                    <h3>Research Assistant — NLP Lab</h3>
+                    <p class="timeline__org">Indiana University</p>
+                    <ul>
+                        <li>Built LLM evaluation and retrieval pipelines over 50K+ documents, creating controlled multi-hop QA benchmarks to measure reasoning quality across structured and unstructured knowledge sources.</li>
+                        <li>Designed graph-guided evaluation workflows using Neo4j and RDF triples, improving multi-hop answer consistency and reducing reasoning failures compared with vector-only retrieval baselines.</li>
+                        <li>Fine-tuned and evaluated LLaMA-based models across retrieval and multi-step QA tasks, analyzing context strategies, retrieval depth, and failure patterns to improve downstream reasoning reliability.</li>
+                        <li>Developed distributed experiment pipelines using DDP, SLURM, MLflow, and Weights &amp; Biases to track answer accuracy, hallucination rate, and path consistency across large-scale model evaluations.</li>
+                        <li style="list-style: none; margin-left: -1.2rem;"><strong>Core stack:</strong> LLaMA, Neo4j, RDF, Hybrid RAG, FAISS, PyTorch, LoRA, DDP, SLURM</li>
+                        <li style="list-style: none; margin-left: -1.2rem;"><strong>Focus:</strong> Retrieval evaluation, multi-hop reasoning, hallucination analysis, distributed experimentation</li>
                         </ul>
                     </div>
                 </div>
                 <div class="timeline__item">
                     <div class="timeline__marker"></div>
                     <div class="timeline__content">
-                        <span class="timeline__date">2023 — 2024</span>
-                        <h3>Associate Instructor — Game Programming with AI &amp; VR</h3>
+                        <span class="timeline__date">Jan 2021 — Jul 2022</span>
+                        <h3>Junior Machine Learning Engineer</h3>
+                        <p class="timeline__org">NovelTronix India</p>
+                        <ul>
+                            <li>Built a graph-based recommendation system on bipartite user-item interaction data, learning ranking-oriented embeddings from implicit feedback to improve candidate generation and recommendation quality.</li>
+                            <li>Designed retrieval workflows using multi-hop neighborhood expansion and nearest-neighbor embedding search, balancing exploration, relevance, and retrieval efficiency for recommendation pipelines.</li>
+                            <li>Engineered graph and temporal interaction features to improve ranking stability under changing demand patterns, contributing to a 17.6% lift in recommendation performance.</li>
+                            <li>Applied reinforcement learning-based tuning to adapt retrieval parameters from user behavior signals, improving recommendation relevance over time in dynamic usage settings.</li>
+                            <li style="list-style: none; margin-left: -1.2rem;"><strong>Core stack:</strong> Python, LightGCN, BPR Loss, Graph Embeddings, ANN Retrieval, Reinforcement Learning</li>
+                            <li style="list-style: none; margin-left: -1.2rem;"><strong>Focus:</strong> Recommendation systems, ranking optimization, graph learning, adaptive retrieval tuning</li>
+                            </ul>
+                    </div>
+                </div>
+                <div class="timeline__item">
+                    <div class="timeline__marker"></div>
+                    <div class="timeline__content">
+                        <span class="timeline__date">Aug 2023 — Jan 2024</span>
+                        <h3>Associate Instructor — Advanced Game Programming with AI</h3>
                         <p class="timeline__org">Indiana University</p>
                         <ul>
-                            <li>Optimized A* pathfinding algorithm, reducing computation time by 15% and steps from 100 to 20.</li>
-                            <li>Programmed NPC decision-making with finite state machines and heuristic algorithms for realistic game behaviors.</li>
-                            <li>Automated NPC responses using NLP for conversational, generative AI-based interactions.</li>
+                            <li>Taught advanced game AI systems to 40+ students, covering pathfinding (A*), Monte Carlo methods, and real-time decision-making under strict performance constraints.</li>
+                            <li>Designed and guided hands-on projects involving AI-driven simulations, NPC behavior modeling, and system-level optimization within Unity-based environments.</li>
+                            <li>Mentored students in debugging, performance tuning, and architectural design, focusing on building efficient, scalable logic within real-time game loops.</li>
+                            <li>Integrated early-stage AI and NLP-based interactions into game systems, enabling dynamic and context-aware NPC behavior.</li>
+                            <li style="list-style: none; margin-left: -1.2rem;"><strong>Core stack:</strong> C#, Unity, A*, Monte Carlo Methods, Game AI Systems, Simulation Design</li>
+                            <li style="list-style: none; margin-left: -1.2rem;"><strong>Focus:</strong> Real-time AI systems, decision-making algorithms, performance optimization, interactive simulations</li>
                         </ul>
                     </div>
                 </div>
@@ -209,8 +256,31 @@
                     </div>
                     <h3 class="project-card__title">EEG Seizure Detection</h3>
                     <p class="project-card__desc">
-                        Signal processing and ML pipeline for seizure detection from multi-channel EEG time-series data using MNE-Python.
+                        <span class="label">Data:</span> CHB-MIT (PhysioNet) clinical EEG dataset (~42GB, multi-patient recordings with seizure annotations).                        
+                        <span class="label">Problem:</span> Detecting seizures from highly imbalanced brain signals (~1% positive rate).<br>
+                        <span class="label">Approach:</span> Built MNE pipeline with 500K+ windowed segments and deep learning for temporal pattern learning.<br>
+                        <span class="label">Impact:</span> Improved recall for rare seizure events while maintaining low-latency inference and controlled false positives.                        
                     </p>
+                    <ul class="project-card__tags">
+                        <li>Signal Processing</li>
+                        <li>MNE-Python</li>
+                        <li>Machine Learning</li>
+                    </ul>
+                </article>
+                <article class="project-card">
+                    <div class="project-card__header">
+                        <i class="fas fa-project-diagram"></i>
+                        <div class="project-card__links">
+                            <a href="https://github.com/koushik16/eeg-seizure-detection-brain-signal-analysis" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-card__title">RAG for Recommendations systems</h3>
+                    <p class="project-card__desc">
+                        <span class="label">Data:</span> 17K+ job postings scraped from platforms like LinkedIn with structured and unstructured attributes.<br>
+                        <span class="label">Problem:</span> Build a system for semantic job matching and career recommendations beyond keyword-based search.<br>
+                        <span class="label">Approach:</span> Developed RAG pipeline using FAISS, LangChain, and LLMs with hybrid retrieval (vector + structured signals) for contextual matching.<br>
+                        <span class="label">Impact:</span> Improved retrieval relevance by 28% (MRR/NDCG) and reduced inference cost by ~35% through optimized context handling.
+                        </p>
                     <ul class="project-card__tags">
                         <li>Signal Processing</li>
                         <li>MNE-Python</li>

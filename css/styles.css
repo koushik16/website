@@ -656,3 +656,33 @@ img {
         align-items: center;
     }
 }
+
+.timeline__stack {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.timeline__meta {
+  margin-top: 12px;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #a9b7cc;
+}
+
+.timeline__meta-label {
+  color: #dfe8f5;
+  font-weight: 600;
+}
+
+.project-card__desc {
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: #a9b7cc;
+}
+
+.project-card__desc .label {
+  color: #e6edf7;
+  font-weight: 600;
+  margin-right: 4px;
+}
