@@ -245,8 +245,57 @@
     <section class="section section--alt" id="projects">
         <div class="container">
             <h2 class="section__title">Projects</h2>
-            <div class="projects__grid">
+            <div class="projects__featured">
+    <article class="project-card project-card--featured">
+        <div class="project-card__header">
+            <i class="fas fa-briefcase"></i>
+            <div class="project-card__links">
+                <a href="https://github.com/koushik16" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+        <h3 class="project-card__title">RAG-Based Career Recommendation Engine</h3>
+        <p class="project-card__desc">
+            <span class="label">Data:</span> 17K+ job postings scraped from platforms like LinkedIn with structured and unstructured job attributes.<br>
+            <span class="label">Problem:</span> Build a semantic career recommendation system beyond keyword-based job search.<br>
+            <span class="label">Approach:</span> Developed a hybrid RAG pipeline using FAISS, LangChain, and LLMs with vector retrieval and structured signals for contextual matching.<br>
+            <span class="label">Impact:</span> Improved retrieval relevance by 28% (MRR/NDCG), achieved 10x faster query efficiency, and reduced context usage by ~35%.
+        </p>
+        <ul class="project-card__tags">
+            <li>RAG</li>
+            <li>FAISS</li>
+            <li>LangChain</li>
+            <li>FastAPI</li>
+            <li>LLMs</li>
+            <li>Semantic Search</li>
+        </ul>
+    </article>
 
+    <article class="project-card project-card--featured">
+        <div class="project-card__header">
+            <i class="fas fa-wave-square"></i>
+            <div class="project-card__links">
+                <a href="https://github.com/koushik16/eeg-seizure-detection-brain-signal-analysis" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+        <h3 class="project-card__title">EEG Seizure Detection</h3>
+        <p class="project-card__desc">
+            <span class="label">Data:</span> CHB-MIT (PhysioNet) clinical EEG dataset (~42GB, multi-patient recordings with seizure annotations).<br>
+            <span class="label">Problem:</span> Detect seizure events from highly imbalanced EEG signals (~0.5% positive rate).<br>
+            <span class="label">Approach:</span> Built an MNE-based preprocessing and windowing pipeline over ~500K+ segments with deep learning for temporal pattern learning.<br>
+            <span class="label">Impact:</span> Improved rare-event detection sensitivity under severe class imbalance while maintaining low-latency inference.
+        </p>
+        <ul class="project-card__tags">
+            <li>Signal Processing</li>
+            <li>MNE-Python</li>
+            <li>Deep Learning</li>
+            <li>Time Series</li>
+            <li>Healthcare AI</li>
+        </ul>
+    </article>
+</div>
+
+<h3 class="projects__subtitle">Other Projects</h3>
+            <div class="projects__grid">
                 <article class="project-card">
                     <div class="project-card__header">
                         <i class="fas fa-project-diagram"></i>
