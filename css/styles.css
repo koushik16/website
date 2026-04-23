@@ -183,10 +183,24 @@ img {
 .terminal-hero__body {
     padding: 1.5rem;
     min-height: 360px;
+    max-height: 480px;
+    overflow-y: auto;
+    cursor: text;
     font-family: var(--font-mono);
     font-size: clamp(0.87rem, 1.7vw, 1rem);
     line-height: 1.75;
     color: #e2e8f0;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(148, 163, 184, 0.3) transparent;
+}
+
+.terminal-hero__body::-webkit-scrollbar {
+    width: 5px;
+}
+
+.terminal-hero__body::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.3);
+    border-radius: 3px;
 }
 
 .terminal-line {
@@ -229,6 +243,55 @@ img {
     color: #38bdf8;
     background: rgba(56, 189, 248, 0.14);
     outline: none;
+}
+
+/* ===== Terminal: Interactive input ===== */
+.terminal-input-row {
+    display: flex;
+    align-items: center;
+}
+
+.terminal-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #e2e8f0;
+    font-family: var(--font-mono);
+    font-size: inherit;
+    line-height: inherit;
+    caret-color: #4ade80;
+    flex: 1;
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.terminal-input::selection {
+    background: rgba(74, 222, 128, 0.2);
+}
+
+.terminal-output--error {
+    color: #f87171;
+}
+
+.terminal-output--muted {
+    color: #94a3b8;
+}
+
+/* ===== Terminal: Helper hint ===== */
+.terminal-hero__hint {
+    text-align: center;
+    margin-top: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+}
+
+.terminal-hero__hint code {
+    color: #4ade80;
+    background: rgba(74, 222, 128, 0.08);
+    padding: 0.1rem 0.35rem;
+    border-radius: 4px;
 }
 
 @keyframes terminalContainerIn {
@@ -689,6 +752,7 @@ img {
 
     .terminal-hero__body {
         min-height: 330px;
+        max-height: 400px;
         padding: 1.25rem 1rem;
     }
 
@@ -716,6 +780,7 @@ img {
 
     .terminal-hero__body {
         min-height: 300px;
+        max-height: 360px;
         line-height: 1.68;
     }
 
