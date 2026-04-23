@@ -84,7 +84,7 @@ function addSpacerLine() {
     terminalLines.appendChild(spacer);
 }
 
-function buildLsLinksLine(line, links) {
+function buildLsLinksLine(line, links, keepCaret = false) {
     line.textContent = '';
 
     links.forEach((link, index) => {
@@ -102,6 +102,10 @@ function buildLsLinksLine(line, links) {
             line.append(document.createTextNode('  '));
         }
     });
+
+    if (keepCaret) {
+        line.append(createCaret());
+    }
 }
 
 async function typeBootLine(text) {
@@ -137,7 +141,7 @@ async function typeCommandBlock(block, isLastBlock) {
         await typeIntoElement(output, block.output[index], 10);
 
         if (block.links && index === block.output.length - 1) {
-            buildLsLinksLine(outputLine, block.links);
+            buildLsLinksLine(outputLine, block.links, isLastOutputLine);
         }
 
         if (!isLastOutputLine) {
