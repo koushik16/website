@@ -225,13 +225,13 @@ let inputRowEl = null;
 let inputPromptSpan = null;
 let inputEl = null;
 
-function getPromptText() {
+function buildPromptString() {
     return `koushik@system:${terminalCwd}$`;
 }
 
 function updateInputPrompt() {
     if (inputPromptSpan) {
-        inputPromptSpan.textContent = `${getPromptText()} `;
+        inputPromptSpan.textContent = `${buildPromptString()} `;
     }
 }
 
@@ -282,7 +282,7 @@ function echoCommandLine(rawCmd) {
     p.className = 'terminal-line';
     const promptSpan = document.createElement('span');
     promptSpan.className = 'terminal-prompt';
-    promptSpan.textContent = `${getPromptText()} `;
+    promptSpan.textContent = `${buildPromptString()} `;
     const cmdSpan = document.createElement('span');
     cmdSpan.textContent = rawCmd;
     p.append(promptSpan, cmdSpan);
@@ -299,7 +299,7 @@ function cmdHelp() {
         '  pwd                   print working directory',
         '  cd <section>          navigate to a section',
         '  whoami                show current user',
-        '  cat <file>            read a file  (role.txt, focus.txt)',
+        '  cat <file>            read a file (role.txt, focus.txt)',
         '  clear                 clear terminal',
         '',
         { text: 'Sections: about  skills  experience  projects  certifications  contact', className: 'terminal-output--muted' }
@@ -328,7 +328,7 @@ function cmdPwd() {
 function cmdCd(args) {
     const target = (args[0] || '').trim();
 
-    if (!target || target === '~' || target === '--') {
+    if (!target || target === '~') {
         terminalCwd = '~';
         updateInputPrompt();
         return [];
@@ -465,7 +465,7 @@ function initTerminalInput() {
 
     inputPromptSpan = document.createElement('span');
     inputPromptSpan.className = 'terminal-prompt';
-    inputPromptSpan.textContent = `${getPromptText()} `;
+    inputPromptSpan.textContent = `${buildPromptString()} `;
 
     inputEl = document.createElement('input');
     inputEl.type = 'text';
