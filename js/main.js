@@ -131,16 +131,16 @@ async function typeCommandBlock(block, isLastBlock) {
     commandCaret.remove();
     await sleep(90);
 
-    for (let index = 0; index < block.output.length; index += 1) {
-        const isLastOutputLine = isLastBlock && index === block.output.length - 1;
+    for (let outputIndex = 0; outputIndex < block.output.length; outputIndex += 1) {
+        const isLastOutputLine = isLastBlock && outputIndex === block.output.length - 1;
         const outputLine = createTerminalLine();
         const output = document.createElement('span');
         const outputCaret = createCaret();
         outputLine.append(output, outputCaret);
 
-        await typeIntoElement(output, block.output[index], 10);
+        await typeIntoElement(output, block.output[outputIndex], 10);
 
-        if (block.links && index === block.output.length - 1) {
+        if (block.links && outputIndex === block.output.length - 1) {
             buildLsLinksLine(outputLine, block.links, isLastOutputLine);
         }
 
@@ -163,9 +163,9 @@ async function initTerminalHero() {
 
     addSpacerLine();
 
-    for (let index = 0; index < TERMINAL_COMMAND_SEQUENCE.length; index += 1) {
-        const block = TERMINAL_COMMAND_SEQUENCE[index];
-        const isLast = index === TERMINAL_COMMAND_SEQUENCE.length - 1;
+    for (let blockIndex = 0; blockIndex < TERMINAL_COMMAND_SEQUENCE.length; blockIndex += 1) {
+        const block = TERMINAL_COMMAND_SEQUENCE[blockIndex];
+        const isLast = blockIndex === TERMINAL_COMMAND_SEQUENCE.length - 1;
         await typeCommandBlock(block, isLast);
 
         if (!isLast) {
