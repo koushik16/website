@@ -298,7 +298,7 @@ function cmdHelp() {
         '  help                  show this help',
         '  ls                    list sections or items',
         '  pwd                   print working directory',
-        '  cd <section>          navigate to a section (Tab to autocomplete)',
+        '  cd <section>          navigate to a section (Tab for completion, Enter to go)',
         '  whoami                show current user',
         '  cat <file>            read a file (role.txt, focus.txt)',
         '  clear                 clear terminal',
