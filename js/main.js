@@ -62,7 +62,7 @@ const TERMINAL_COMMAND_SEQUENCE = [
         links: [
             { label: 'projects/', target: '#projects' },
             { label: 'experience/', target: '#experience' },
-            { label: 'research/', target: '#projects' },
+            { label: 'research/', target: '#research' },
             { label: 'contact/', target: '#contact' }
         ]
     }
@@ -202,9 +202,10 @@ const VIRTUAL_FS_ROOT = [
     { name: 'skills',         target: '#skills' },
     { name: 'experience',     target: '#experience' },
     { name: 'projects',       target: '#projects', hasChildren: true },
+    { name: 'research',       target: '#research' },
+    { name: 'articles',       target: '#articles' },
     { name: 'certifications', target: '#certifications' },
-    { name: 'contact',        target: '#contact' },
-    { name: 'research',       target: '#projects' }
+    { name: 'contact',        target: '#contact' }
 ];
 
 const VIRTUAL_FS_PROJECTS = [
@@ -297,12 +298,12 @@ function cmdHelp() {
         '  help                  show this help',
         '  ls                    list sections or items',
         '  pwd                   print working directory',
-        '  cd <section>          navigate to a section',
+        '  cd <section>          navigate to a section (Tab to autocomplete)',
         '  whoami                show current user',
         '  cat <file>            read a file (role.txt, focus.txt)',
         '  clear                 clear terminal',
         '',
-        { text: 'Sections: about  skills  experience  projects  certifications  contact', className: 'terminal-output--muted' }
+        { text: 'Sections: about  skills  experience  projects  research  articles  certifications  contact', className: 'terminal-output--muted' }
     ];
 }
 
@@ -392,6 +393,9 @@ function cmdCat(args) {
     return [{ text: `cat: ${name}: No such file or directory`, className: 'terminal-output--error' }];
 }
 
+// All executable command names — used for Tab completion
+const TERMINAL_COMMANDS = ['help', 'ls', 'pwd', 'cd', 'clear', 'whoami', 'cat'];
+
 function executeCommand(raw) {
     const trimmed = raw.trim();
     if (!trimmed) {
@@ -433,6 +437,46 @@ function handleTerminalKeydown(event) {
         appendInteractiveOutputLines(output);
         insertSpacerBeforeInput();
         scrollTerminalToBottom();
+
+    } else if (event.key === 'Tab') {
+        // Tab = autocomplete only — never navigate
+        event.preventDefault();
+        const value = inputEl.value;
+        const spaceIdx = value.indexOf(' ');
+        let matches = [];
+        let prefix = '';
+
+        if (spaceIdx === -1) {
+            // Complete command name
+            matches = TERMINAL_COMMANDS.filter(c => c.startsWith(value));
+            prefix = '';
+        } else {
+            const cmd = value.slice(0, spaceIdx);
+            const partial = value.slice(spaceIdx + 1);
+            prefix = cmd + ' ';
+
+            if (cmd === 'cd') {
+                const dir = getCurrentDirEntry();
+                const names = dir ? dir.children.map(e => e.name) : [];
+                matches = names.filter(n => n.startsWith(partial));
+            } else if (cmd === 'cat') {
+                matches = ['role.txt', 'focus.txt'].filter(f => f.startsWith(partial));
+            }
+        }
+
+        if (matches.length === 1) {
+            // Single match — complete silently, no navigation
+            inputEl.value = prefix + matches[0];
+        } else if (matches.length > 1) {
+            // Multiple matches — show options, do not navigate
+            echoCommandLine(value);
+            appendInteractiveOutputLines([
+                { text: matches.join('  '), className: 'terminal-output--muted' }
+            ]);
+            insertSpacerBeforeInput();
+            scrollTerminalToBottom();
+        }
+        // Zero matches — do nothing
 
     } else if (event.key === 'ArrowUp') {
         event.preventDefault();
@@ -489,11 +533,36 @@ function initTerminalInput() {
     scrollTerminalToBottom();
 }
 
+// ===== Navbar: hide during hero, show after =====
+
+function initNavbarHide() {
+    const header = document.getElementById('header');
+    const hero = document.getElementById('hero');
+    if (!header || !hero) {
+        return;
+    }
+
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    header.classList.add('header--at-hero');
+                } else {
+                    header.classList.remove('header--at-hero');
+                }
+            });
+        },
+        { threshold: 0.1 }
+    );
+
+    observer.observe(hero);
+}
+
 // ===== Scroll reveal animation =====
 
 function initScrollReveal() {
     const revealElements = document.querySelectorAll(
-        '.highlight-card, .skill-category, .timeline__item, .project-card, .cert-card, .contact-card'
+        '.highlight-card, .skill-category, .timeline__item, .project-card, .cert-card, .contact-card, .pub-card, .article-card'
     );
 
     revealElements.forEach(el => el.classList.add('reveal'));
@@ -542,6 +611,7 @@ function initActiveNav() {
 // Initialize on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
     initTerminalHero();
+    initNavbarHide();
     initScrollReveal();
     initActiveNav();
 });

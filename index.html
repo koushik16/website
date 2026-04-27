@@ -22,6 +22,8 @@
                 <li><a href="#skills" class="nav__link">Skills</a></li>
                 <li><a href="#experience" class="nav__link">Experience</a></li>
                 <li><a href="#projects" class="nav__link">Projects</a></li>
+                <li><a href="#research" class="nav__link">Research</a></li>
+                <li><a href="#articles" class="nav__link">Articles</a></li>
                 <li><a href="#certifications" class="nav__link">Certifications</a></li>
                 <li><a href="#contact" class="nav__link">Contact</a></li>
             </ul>
@@ -72,9 +74,9 @@
                         <p>Text analytics, LLMs, transformers, and information extraction</p>
                     </div>
                     <div class="highlight-card">
-                        <i class="fas fa-amplitude"></i>
+                        <i class="fas fa-wave-square"></i>
                         <h3>Signal Processing</h3>
-                        <p>Text analytics, LLMs, transformers, and information extraction</p>
+                        <p>EEG analysis, time-series modeling, and neural signal pipelines</p>
                     </div>
                     <div class="highlight-card">
                         <i class="fas fa-atom"></i>
@@ -293,47 +295,6 @@
             <div class="projects__grid">
                 <article class="project-card">
                     <div class="project-card__header">
-                        <i class="fas fa-project-diagram"></i>
-                        <div class="project-card__links">
-                            <a href="https://github.com/koushik16/eeg-seizure-detection-brain-signal-analysis" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <h3 class="project-card__title">EEG Seizure Detection</h3>
-                    <p class="project-card__desc">
-                        <span class="label">Data:</span> CHB-MIT (PhysioNet) clinical EEG dataset (~42GB, multi-patient recordings with seizure annotations).                        
-                        <span class="label">Problem:</span> Detecting seizures from highly imbalanced brain signals (~1% positive rate).<br>
-                        <span class="label">Approach:</span> Built MNE pipeline with 500K+ windowed segments and deep learning for temporal pattern learning.<br>
-                        <span class="label">Impact:</span> Improved recall for rare seizure events while maintaining low-latency inference and controlled false positives.                        
-                    </p>
-                    <ul class="project-card__tags">
-                        <li>Signal Processing</li>
-                        <li>MNE-Python</li>
-                        <li>Machine Learning</li>
-                    </ul>
-                </article>
-                <article class="project-card">
-                    <div class="project-card__header">
-                        <i class="fas fa-project-diagram"></i>
-                        <div class="project-card__links">
-                            <a href="https://github.com/koushik16/eeg-seizure-detection-brain-signal-analysis" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <h3 class="project-card__title">RAG for Recommendations systems</h3>
-                    <p class="project-card__desc">
-                        <span class="label">Data:</span> 17K job postings scraped from platforms like LinkedIn with structured and unstructured attributes.<br>
-                        <span class="label">Problem:</span> Build a system for semantic job matching and career recommendations beyond keyword-based search.<br>
-                        <span class="label">Approach:</span> Developed RAG pipeline using FAISS, LangChain, and LLMs with hybrid retrieval (vector + structured signals) for contextual matching.<br>
-                        <span class="label">Impact:</span> Improved retrieval relevance by 28% (MRR/NDCG) and reduced inference cost by ~35% through optimized context handling.
-                        </p>
-                    <ul class="project-card__tags">
-                        <li>Signal Processing</li>
-                        <li>MNE-Python</li>
-                        <li>Machine Learning</li>
-                    </ul>
-                </article>
-
-                <article class="project-card">
-                    <div class="project-card__header">
                         <i class="fas fa-dna"></i>
                         <div class="project-card__links">
                             <a href="https://github.com/koushik16/Synergy-Estimation-for-Cancer-Drugs" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
@@ -422,6 +383,85 @@
                     </ul>
                 </article>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section class="section" id="research">
+        <div class="container">
+            <h2 class="section__title">Research</h2>
+            <div class="research__content">
+                <p class="research__text">
+                    My research explores how quantum computing methods can be applied to represent and analyze language and machine learning embeddings. I work on hybrid classical-quantum approaches where classical word embeddings are encoded into quantum states, compared through quantum similarity measures, and examined through Hamiltonian-based representations. The aim is not to claim immediate quantum advantage, but to investigate whether quantum formalisms can expose useful structure in semantic representations, support new ways of measuring similarity, and provide a foundation for future quantum-aware AI systems.
+                </p>
+                <div class="research__actions">
+                    <a href="https://scholar.google.com/citations?user=8wYya_sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="btn btn--outline">
+                        View publications
+                    </a>
+                </div>
+            </div>
+            <div class="publications">
+                <h3 class="publications__title" id="publications">Papers &amp; Publications</h3>
+                <div class="pub-list">
+                    <div class="pub-card">
+                        <p class="pub-card__title">Word and text similarity using classical word embeddings in quantum NLP systems</p>
+                        <p class="pub-card__authors">Cavar, D. and Parukola, K.R. (2025)</p>
+                        <p class="pub-card__venue">IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP), pp. 1–5</p>
+                        <div class="pub-card__footer">
+                            <a href="https://scholar.google.com/citations?user=8wYya_sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="pub-card__link"><i class="fas fa-external-link-alt"></i> Google Scholar</a>
+                        </div>
+                    </div>
+                    <div class="pub-card">
+                        <p class="pub-card__title">Hybrid Classical Quantum Embeddings for NLP and AI Using Hamiltonians</p>
+                        <p class="pub-card__authors">Cavar, D., Graves, J.B., Sparks, S.A. and Parukola, K.R. (2025)</p>
+                        <p class="pub-card__venue">IEEE International Conference on Quantum Computing and Engineering (QCE), Vol. 2, pp. 640–641</p>
+                        <div class="pub-card__footer">
+                            <a href="https://scholar.google.com/citations?user=8wYya_sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="pub-card__link"><i class="fas fa-external-link-alt"></i> Google Scholar</a>
+                        </div>
+                    </div>
+                    <div class="pub-card">
+                        <p class="pub-card__title">Old Wine in New Bottles: Using Classical Word Embeddings in Gate-Based Quantum NLP Systems</p>
+                        <p class="pub-card__authors">Cavar, D., Parukola, K.R., Graves, J.B. and Sparks, S.A. (2025)</p>
+                        <p class="pub-card__venue">International Conference on Quantum Artificial Intelligence and Natural Language Processing, pp. 156–171. Springer Nature Switzerland</p>
+                        <div class="pub-card__footer">
+                            <a href="https://scholar.google.com/citations?user=8wYya_sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="pub-card__link"><i class="fas fa-external-link-alt"></i> Google Scholar</a>
+                        </div>
+                    </div>
+                </div>
+                <p class="research__scholar">
+                    <a href="https://scholar.google.com/citations?user=8wYya_sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">View all publications on Google Scholar →</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section class="section section--alt" id="articles">
+        <div class="container">
+            <h2 class="section__title">Articles</h2>
+            <p class="articles__intro">
+                Articles and technical notes coming soon. I plan to write about ML systems, applied AI research, model evaluation, and research engineering workflows.
+            </p>
+            <div class="articles__grid">
+                <div class="article-card">
+                    <span class="article-card__badge">Coming Soon</span>
+                    <h3 class="article-card__title">Evaluating Retrieval in Production RAG Systems</h3>
+                    <p class="article-card__desc">A deep dive into metrics, failure modes, and practical evaluation strategies for retrieval-augmented generation pipelines in real-world deployments.</p>
+                    <span class="article-card__tags"># ML Systems · RAG · Evaluation</span>
+                </div>
+                <div class="article-card">
+                    <span class="article-card__badge">Coming Soon</span>
+                    <h3 class="article-card__title">Quantum Representations for Classical NLP</h3>
+                    <p class="article-card__desc">Notes on encoding classical word embeddings into quantum states and what that structure might tell us about semantic similarity and language geometry.</p>
+                    <span class="article-card__tags"># Quantum NLP · Research</span>
+                </div>
+                <div class="article-card">
+                    <span class="article-card__badge">Coming Soon</span>
+                    <h3 class="article-card__title">Inference Cost vs. Quality Trade-offs at Scale</h3>
+                    <p class="article-card__desc">Practical notes on balancing model quality, latency, and token cost when building AI systems that serve real users under resource constraints.</p>
+                    <span class="article-card__tags"># AI Engineering · LLMs</span>
+                </div>
             </div>
         </div>
     </section>
