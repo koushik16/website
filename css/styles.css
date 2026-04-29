@@ -188,8 +188,7 @@ img {
 
 .terminal-hero__body {
     padding: 1.5rem;
-    min-height: 420px;
-    max-height: 560px;
+    height: 480px;
     overflow-y: auto;
     cursor: text;
     font-family: var(--font-mono);
@@ -508,6 +507,10 @@ img {
     transform: translateX(-6px);
 }
 
+.timeline__marker--research {
+    background: var(--color-accent);
+}
+
 .timeline__content {
     background: var(--color-card);
     border: 1px solid var(--color-border);
@@ -757,8 +760,7 @@ img {
     }
 
     .terminal-hero__body {
-        min-height: 380px;
-        max-height: 450px;
+        height: 420px;
         padding: 1.25rem 1rem;
     }
 
@@ -785,8 +787,7 @@ img {
     }
 
     .terminal-hero__body {
-        min-height: 320px;
-        max-height: 380px;
+        height: 360px;
         line-height: 1.68;
     }
 
