@@ -502,6 +502,9 @@ function initTerminalInput() {
         return;
     }
 
+    // Remove any leftover blinking carets from the boot animation
+    terminalLines.querySelectorAll('.terminal-caret').forEach(c => c.remove());
+
     addSpacerLine();
 
     inputRowEl = document.createElement('p');
@@ -531,6 +534,13 @@ function initTerminalInput() {
     inputEl.addEventListener('keydown', handleTerminalKeydown);
 
     scrollTerminalToBottom();
+
+    // Auto-focus only if the user hasn't already interacted with something else
+    setTimeout(() => {
+        if (!document.activeElement || document.activeElement === document.body) {
+            inputEl.focus();
+        }
+    }, 60);
 }
 
 // ===== Navbar: hide during hero, show after =====

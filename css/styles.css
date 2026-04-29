@@ -133,7 +133,7 @@ img {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 0;
+    padding: 2rem 0;
     background:
         radial-gradient(ellipse at 20% 50%, rgba(56, 189, 248, 0.08) 0%, transparent 50%),
         radial-gradient(ellipse at 80% 50%, rgba(34, 211, 238, 0.06) 0%, transparent 50%),
@@ -141,7 +141,7 @@ img {
 }
 
 .terminal-hero {
-    width: min(100%, 1020px);
+    width: 100%;
     margin: 0 auto;
     background: #070d1a;
     border: 1px solid rgba(148, 163, 184, 0.25);
@@ -190,6 +190,7 @@ img {
     padding: 1.5rem;
     height: 480px;
     overflow-y: auto;
+    overflow-x: hidden;
     cursor: text;
     font-family: var(--font-mono);
     font-size: clamp(0.87rem, 1.7vw, 1rem);
@@ -212,6 +213,7 @@ img {
     margin: 0;
     white-space: pre-wrap;
     word-break: break-word;
+    overflow-wrap: anywhere;
 }
 
 .terminal-line + .terminal-line {
@@ -756,7 +758,7 @@ img {
 
     .hero {
         min-height: auto;
-        padding: 2rem 0 2rem;
+        padding: 2rem 0;
     }
 
     .terminal-hero__body {
