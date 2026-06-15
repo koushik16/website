@@ -1,29 +1,38 @@
-# Koushik Reddy Parukola — Industry Portfolio
+# Koushik Reddy Parukola — Portfolio
 
-A clean, responsive, single-page portfolio website showcasing professional experience, technical skills, and projects in Data Science, Machine Learning, and NLP.
+Personal portfolio website focused on **ML Engineering, AI Systems, Research, and Teaching**.
 
-## Sections
+## Key Features
 
-- **Hero** — Introduction with social links
-- **About** — Professional summary and focus areas
-- **Skills** — Technical skill categories (Languages, ML/AI, NLP, Data & Cloud, Quantum, Tools)
-- **Experience** — Professional timeline
-- **Projects** — Featured project cards with GitHub links
-- **Certifications** — Industry certifications with credential links
-- **Contact** — Email, LinkedIn, and GitHub contact cards
+- Interactive terminal-style homepage
+- Terminal command navigation (`help`, `ls`, `cd`, `cat`, `clear`)
+- Curated project showcase
+- Research positioning and publications section
+- Teaching and mentorship section
+- Certifications section
+- Articles section (coming soon)
 
 ## Tech Stack
 
-- HTML5, CSS3, vanilla JavaScript
-- CSS custom properties for theming
-- Responsive design (mobile-first breakpoints)
-- Scroll-reveal animations via IntersectionObserver
-- Font Awesome 6 icons
+- HTML5
+- CSS3
+- Vanilla JavaScript
+- Font Awesome icons
 
-## Local Development
+## Local Setup
 
-Open `index.html` in a browser — no build tools required.
+No package manager is required for this repository.
 
-## Deployment
+1. Clone the repository
+2. Open `index.html` from the repository root in your browser
 
-This site is ready for [GitHub Pages](https://pages.github.com/). Enable Pages in the repository settings and point it to the `main` branch (or whichever branch you deploy from).
+## Run / Build
+
+This project is a static site and has no build pipeline configured.
+
+- Run locally: open `index.html`
+- Deploy: serve as static files (e.g., GitHub Pages)
+
+## Future Updates
+
+Planned updates include article publications, deeper project write-ups, and additional research engineering notes.

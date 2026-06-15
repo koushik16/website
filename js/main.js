@@ -2,13 +2,13 @@
 const navToggle = document.getElementById('nav-toggle');
 const navMenu = document.getElementById('nav-menu');
 const terminalLines = document.getElementById('terminal-lines');
+const terminalInputBar = document.getElementById('terminal-inputbar');
 
 if (navToggle && navMenu) {
     navToggle.addEventListener('click', () => {
         navMenu.classList.toggle('active');
     });
 
-    // Close menu when a link is clicked
     navMenu.querySelectorAll('.nav__link').forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
@@ -17,7 +17,6 @@ if (navToggle && navMenu) {
 }
 
 // ===== Terminal: Shared helpers =====
-
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -29,7 +28,6 @@ function scrollTerminalToBottom() {
 }
 
 // ===== Terminal: Boot animation data =====
-
 const TERMINAL_BOOT_SEQUENCE = [
     'Initializing environment...',
     'Loading profile...'
@@ -44,32 +42,23 @@ const TERMINAL_COMMAND_SEQUENCE = [
     {
         prompt: 'koushik@system:~$',
         command: 'cat role.txt',
-        output: ['ML Engineer | AI Systems | Research']
-    },
-    {
-        prompt: 'koushik@system:~$',
-        command: 'cat focus.txt',
-        output: [
-            '> End-to-end ML pipelines',
-            '> Multimodal AI systems',
-            '> Real-time inference and deployment'
-        ]
+        output: ['ML Engineer | AI Systems | Research | Teaching']
     },
     {
         prompt: 'koushik@system:~$',
         command: 'ls',
-        output: ['projects/  experience/  research/  contact/'],
+        output: ['about/  skills/  experience/  research-experience/  teaching/  projects/  research/  articles/  certifications/  contact/'],
         links: [
-            { label: 'projects/', target: '#projects' },
             { label: 'experience/', target: '#experience' },
+            { label: 'projects/', target: '#projects' },
             { label: 'research/', target: '#research' },
+            { label: 'articles/', target: '#articles' },
             { label: 'contact/', target: '#contact' }
         ]
     }
 ];
 
 // ===== Terminal: Boot animation DOM helpers =====
-
 function createTerminalLine(className = '') {
     const line = document.createElement('p');
     line.className = `terminal-line${className ? ` ${className}` : ''}`;
@@ -121,7 +110,6 @@ function buildLsLinksLine(line, links, keepCaret = false) {
 }
 
 // ===== Terminal: Boot animation =====
-
 async function typeBootLine(text) {
     const line = createTerminalLine();
     const content = document.createElement('span');
@@ -130,7 +118,7 @@ async function typeBootLine(text) {
     await typeIntoElement(content, text, 14);
     caret.remove();
     scrollTerminalToBottom();
-    await sleep(140);
+    await sleep(120);
 }
 
 async function typeCommandBlock(block, isLastBlock) {
@@ -153,7 +141,7 @@ async function typeCommandBlock(block, isLastBlock) {
         const outputCaret = createCaret();
         outputLine.append(output, outputCaret);
 
-        await typeIntoElement(output, block.output[outputIndex], 10);
+        await typeIntoElement(output, block.output[outputIndex], 9);
 
         if (block.links && outputIndex === block.output.length - 1) {
             buildLsLinksLine(outputLine, block.links, isLastOutputLine);
@@ -195,34 +183,28 @@ async function initTerminalHero() {
 }
 
 // ===== Terminal: Interactive commands =====
-
-// Virtual filesystem: root sections and projects sub-directory
 const VIRTUAL_FS_ROOT = [
-    { name: 'about',          target: '#about' },
-    { name: 'skills',         target: '#skills' },
-    { name: 'experience',     target: '#experience' },
-    { name: 'projects',       target: '#projects', hasChildren: true },
-    { name: 'research',       target: '#research' },
-    { name: 'articles',       target: '#articles' },
+    { name: 'about', target: '#about' },
+    { name: 'skills', target: '#skills' },
+    { name: 'experience', target: '#experience' },
+    { name: 'research-experience', target: '#research-experience' },
+    { name: 'teaching', target: '#teaching' },
+    { name: 'projects', target: '#projects', hasChildren: true },
+    { name: 'research', target: '#research' },
+    { name: 'articles', target: '#articles' },
     { name: 'certifications', target: '#certifications' },
-    { name: 'contact',        target: '#contact' }
+    { name: 'contact', target: '#contact' }
 ];
 
 const VIRTUAL_FS_PROJECTS = [
-    'rag-career-engine',
-    'eeg-seizure-detection',
-    'cancer-drug-synergy',
-    'drug-rag',
-    'quantum-vqc',
-    'real-estate-api',
-    'traffic-sign-classification'
+    'career-recommendation-rag',
+    'drug-synergy-gnn',
+    'eeg-seizure-detection'
 ];
 
-// Interactive terminal state
 let terminalCwd = '~';
 let terminalHistory = [];
 let historyPointer = -1;
-let inputRowEl = null;
 let inputPromptSpan = null;
 let inputEl = null;
 
@@ -248,17 +230,12 @@ function getCurrentDirEntry() {
     return null;
 }
 
-function insertLineBeforeInput(lineEl) {
-    terminalLines.insertBefore(lineEl, inputRowEl);
-}
-
-function insertSpacerBeforeInput() {
+function insertSpacerLine() {
     const spacer = document.createElement('div');
     spacer.className = 'terminal-line terminal-line--spacer';
-    insertLineBeforeInput(spacer);
+    terminalLines.appendChild(spacer);
 }
 
-// Output lines can be: a plain string, { links }, or { text, className }
 function appendInteractiveOutputLines(outputLines) {
     outputLines.forEach(line => {
         const p = document.createElement('p');
@@ -273,7 +250,7 @@ function appendInteractiveOutputLines(outputLines) {
             }
             p.textContent = line.text;
         }
-        insertLineBeforeInput(p);
+        terminalLines.appendChild(p);
     });
     scrollTerminalToBottom();
 }
@@ -287,23 +264,21 @@ function echoCommandLine(rawCmd) {
     const cmdSpan = document.createElement('span');
     cmdSpan.textContent = rawCmd;
     p.append(promptSpan, cmdSpan);
-    insertLineBeforeInput(p);
+    terminalLines.appendChild(p);
 }
-
-// --- Command implementations ---
 
 function cmdHelp() {
     return [
         { text: 'Available commands:', className: 'terminal-output--muted' },
-        '  help                  show this help',
-        '  ls                    list sections or items',
-        '  pwd                   print working directory',
-        '  cd <section>          navigate to a section (Tab for completion, Enter to go)',
-        '  whoami                show current user',
-        '  cat <file>            read a file (role.txt, focus.txt)',
-        '  clear                 clear terminal',
+        '  help                    show this help',
+        '  ls                      list sections or items',
+        '  pwd                     print working directory',
+        '  cd <section>            navigate on Enter only (Tab = autocomplete)',
+        '  whoami                  show current user',
+        '  cat <file>              read a file (role.txt, focus.txt)',
+        '  clear                   clear terminal output',
         '',
-        { text: 'Sections: about  skills  experience  projects  research  articles  certifications  contact', className: 'terminal-output--muted' }
+        { text: 'Sections: about  skills  experience  research-experience  teaching  projects  research  articles  certifications  contact', className: 'terminal-output--muted' }
     ];
 }
 
@@ -354,7 +329,6 @@ function cmdCd(args) {
         return [{ text: `cd: no such directory: ${target}`, className: 'terminal-output--error' }];
     }
 
-    // Inside a sub-directory: allow navigating into project names
     const sectionName = terminalCwd.replace('~/', '');
     const parentEntry = VIRTUAL_FS_ROOT.find(e => e.name === sectionName);
     if (parentEntry && parentEntry.hasChildren && VIRTUAL_FS_PROJECTS.includes(target)) {
@@ -366,10 +340,7 @@ function cmdCd(args) {
 }
 
 function cmdClear() {
-    // Remove all lines except the persistent input row
-    while (terminalLines.firstChild && terminalLines.firstChild !== inputRowEl) {
-        terminalLines.removeChild(terminalLines.firstChild);
-    }
+    terminalLines.textContent = '';
     return [];
 }
 
@@ -380,20 +351,19 @@ function cmdWhoami() {
 function cmdCat(args) {
     const file = (args[0] || '').toLowerCase();
     if (file === 'role.txt') {
-        return ['ML Engineer | AI Systems | Research'];
+        return ['ML Engineer | AI Systems | Research | Teaching'];
     }
     if (file === 'focus.txt') {
         return [
-            '> End-to-end ML pipelines',
-            '> Multimodal AI systems',
-            '> Real-time inference and deployment'
+            '> Agentic AI systems',
+            '> Retrieval and ranking quality',
+            '> Production reliability, latency, and cost'
         ];
     }
     const name = args[0] || '(no file)';
     return [{ text: `cat: ${name}: No such file or directory`, className: 'terminal-output--error' }];
 }
 
-// All executable command names — used for Tab completion
 const TERMINAL_COMMANDS = ['help', 'ls', 'pwd', 'cd', 'clear', 'whoami', 'cat'];
 
 function executeCommand(raw) {
@@ -407,19 +377,23 @@ function executeCommand(raw) {
     const args = parts.slice(1);
 
     switch (cmd) {
-        case 'help':   return cmdHelp();
-        case 'ls':     return cmdLs();
-        case 'pwd':    return cmdPwd();
-        case 'cd':     return cmdCd(args);
-        case 'clear':  return cmdClear();
+        case 'help': return cmdHelp();
+        case 'ls': return cmdLs();
+        case 'pwd': return cmdPwd();
+        case 'cd': return cmdCd(args);
+        case 'clear': return cmdClear();
         case 'whoami': return cmdWhoami();
-        case 'cat':    return cmdCat(args);
+        case 'cat': return cmdCat(args);
         default:
             return [{ text: `zsh: command not found: ${cmd}`, className: 'terminal-output--error' }];
     }
 }
 
 function handleTerminalKeydown(event) {
+    if (!inputEl) {
+        return;
+    }
+
     if (event.key === 'Enter') {
         const raw = inputEl.value;
         inputEl.value = '';
@@ -435,25 +409,27 @@ function handleTerminalKeydown(event) {
         echoCommandLine(raw);
         const output = executeCommand(raw);
         appendInteractiveOutputLines(output);
-        insertSpacerBeforeInput();
+        insertSpacerLine();
         scrollTerminalToBottom();
+        return;
+    }
 
-    } else if (event.key === 'Tab') {
-        // Tab = autocomplete only — never navigate
+    if (event.key === 'Tab') {
         event.preventDefault();
+        event.stopPropagation();
+
         const value = inputEl.value;
         const spaceIdx = value.indexOf(' ');
         let matches = [];
         let prefix = '';
 
         if (spaceIdx === -1) {
-            // Complete command name
             matches = TERMINAL_COMMANDS.filter(c => c.startsWith(value));
             prefix = '';
         } else {
             const cmd = value.slice(0, spaceIdx);
             const partial = value.slice(spaceIdx + 1);
-            prefix = cmd + ' ';
+            prefix = `${cmd} `;
 
             if (cmd === 'cd') {
                 const dir = getCurrentDirEntry();
@@ -465,27 +441,28 @@ function handleTerminalKeydown(event) {
         }
 
         if (matches.length === 1) {
-            // Single match — complete silently, no navigation
             inputEl.value = prefix + matches[0];
         } else if (matches.length > 1) {
-            // Multiple matches — show options, do not navigate
-            echoCommandLine(value);
             appendInteractiveOutputLines([
                 { text: matches.join('  '), className: 'terminal-output--muted' }
             ]);
-            insertSpacerBeforeInput();
+            insertSpacerLine();
             scrollTerminalToBottom();
         }
-        // Zero matches — do nothing
 
-    } else if (event.key === 'ArrowUp') {
+        return;
+    }
+
+    if (event.key === 'ArrowUp') {
         event.preventDefault();
         if (historyPointer < terminalHistory.length - 1) {
             historyPointer += 1;
             inputEl.value = terminalHistory[historyPointer];
         }
+        return;
+    }
 
-    } else if (event.key === 'ArrowDown') {
+    if (event.key === 'ArrowDown') {
         event.preventDefault();
         if (historyPointer > 0) {
             historyPointer -= 1;
@@ -498,17 +475,15 @@ function handleTerminalKeydown(event) {
 }
 
 function initTerminalInput() {
-    if (!terminalLines) {
+    if (!terminalLines || !terminalInputBar) {
         return;
     }
 
-    // Remove any leftover blinking carets from the boot animation
     terminalLines.querySelectorAll('.terminal-caret').forEach(c => c.remove());
 
-    addSpacerLine();
-
-    inputRowEl = document.createElement('p');
-    inputRowEl.className = 'terminal-line terminal-input-row';
+    terminalInputBar.textContent = '';
+    const row = document.createElement('p');
+    row.className = 'terminal-line terminal-input-row';
 
     inputPromptSpan = document.createElement('span');
     inputPromptSpan.className = 'terminal-prompt';
@@ -521,30 +496,25 @@ function initTerminalInput() {
     inputEl.setAttribute('spellcheck', 'false');
     inputEl.setAttribute('aria-label', 'Terminal command input');
 
-    inputRowEl.appendChild(inputPromptSpan);
-    inputRowEl.appendChild(inputEl);
-    terminalLines.appendChild(inputRowEl);
+    row.append(inputPromptSpan, inputEl);
+    terminalInputBar.appendChild(row);
 
-    // Click anywhere inside the terminal to focus the input
     const terminalHeroEl = document.getElementById('terminal-hero');
     if (terminalHeroEl) {
-        terminalHeroEl.addEventListener('click', () => inputEl.focus());
+        terminalHeroEl.addEventListener('click', () => inputEl?.focus());
     }
 
     inputEl.addEventListener('keydown', handleTerminalKeydown);
-
     scrollTerminalToBottom();
 
-    // Auto-focus only if the user hasn't already interacted with something else
     setTimeout(() => {
         if (!document.activeElement || document.activeElement === document.body) {
-            inputEl.focus();
+            inputEl?.focus();
         }
     }, 60);
 }
 
 // ===== Navbar: hide during hero, show after =====
-
 function initNavbarHide() {
     const header = document.getElementById('header');
     const hero = document.getElementById('hero');
@@ -562,14 +532,13 @@ function initNavbarHide() {
                 }
             });
         },
-        { threshold: 0.1 }
+        { threshold: 0.2 }
     );
 
     observer.observe(hero);
 }
 
 // ===== Scroll reveal animation =====
-
 function initScrollReveal() {
     const revealElements = document.querySelectorAll(
         '.highlight-card, .skill-category, .timeline__item, .project-card, .cert-card, .contact-card, .pub-card, .article-card'
@@ -593,7 +562,6 @@ function initScrollReveal() {
 }
 
 // ===== Active nav link highlight on scroll =====
-
 function initActiveNav() {
     const sections = document.querySelectorAll('.section, .hero');
     const navLinks = document.querySelectorAll('.nav__link');
@@ -604,10 +572,7 @@ function initActiveNav() {
                 if (entry.isIntersecting) {
                     const id = entry.target.getAttribute('id');
                     navLinks.forEach(link => {
-                        link.classList.toggle(
-                            'nav__link--active',
-                            link.getAttribute('href') === `#${id}`
-                        );
+                        link.classList.toggle('nav__link--active', link.getAttribute('href') === `#${id}`);
                     });
                 }
             });
@@ -618,7 +583,6 @@ function initActiveNav() {
     sections.forEach(section => observer.observe(section));
 }
 
-// Initialize on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
     initTerminalHero();
     initNavbarHide();

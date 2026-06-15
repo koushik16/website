@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Koushik Reddy Parukola — Portfolio</title>
-    <meta name="description" content="Industry portfolio of Koushik Reddy Parukola — AI &amp; ML Engineer specializing in NLP, Deep Learning, and Quantum Computing.">
+    <meta name="description" content="Personal portfolio of Koushik Reddy Parukola — ML Engineering, AI Systems, Research, and Teaching.">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
 
-    <!-- Navigation -->
     <header class="header" id="header">
         <nav class="nav container">
             <a href="#hero" class="nav__logo">KRP</a>
@@ -21,6 +20,8 @@
                 <li><a href="#about" class="nav__link">About</a></li>
                 <li><a href="#skills" class="nav__link">Skills</a></li>
                 <li><a href="#experience" class="nav__link">Experience</a></li>
+                <li><a href="#research-experience" class="nav__link">Research Exp</a></li>
+                <li><a href="#teaching" class="nav__link">Teaching</a></li>
                 <li><a href="#projects" class="nav__link">Projects</a></li>
                 <li><a href="#research" class="nav__link">Research</a></li>
                 <li><a href="#articles" class="nav__link">Articles</a></li>
@@ -30,7 +31,6 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="container">
             <div class="terminal-hero" id="terminal-hero" aria-label="Terminal introduction">
@@ -40,55 +40,56 @@
                     <span class="terminal-hero__dot terminal-hero__dot--green"></span>
                     <span class="terminal-hero__title">koushik@system — zsh</span>
                 </div>
-                <div class="terminal-hero__body" id="terminal-lines" aria-live="polite"></div>
+                <div class="terminal-hero__viewport">
+                    <div class="terminal-hero__body" id="terminal-lines" aria-live="polite"></div>
+                </div>
+                <div class="terminal-hero__inputbar" id="terminal-inputbar"></div>
             </div>
             <p class="terminal-hero__hint">Try <code>help</code>, <code>ls</code>, or <code>cd projects</code> — or just scroll.</p>
         </div>
     </section>
 
-    <!-- About Section -->
     <section class="section" id="about">
         <div class="container">
             <h2 class="section__title">About Me</h2>
             <div class="about__content">
                 <div class="about__text">
                     <p>
-                        I am a AI/ML Engineer focused on building end-to-end AI systems that operate on large-scale, unstructured data. My work spans from deep learning, LLM-based applications, with experience in designing retrieval pipelines, optimizing inference, and developing scalable backend services for AI systems.
+                        I am an AI/ML engineer focused on building end-to-end AI systems for production use across retrieval, reasoning, and deployment. My work combines deep learning, LLM applications, and system design to deliver reliable, measurable business outcomes.
                     </p>
                     <p>
-                        I have worked on systems involving multimodal data processing (text, images and signals forms), real-time inference workflows, and structured knowledge integration, with a focus on performance, reliability, and cost efficiency. I have also worked in environments where AI systems are used in real workflows, requiring careful handling of latency, data quality, and user interaction, shaping how I approach system design and deployment.
+                        I work on multimodal pipelines, agentic workflows, and scalable inference systems with strong emphasis on latency, observability, and cost-quality tradeoffs.
                     </p>
                     <p>
-                        Alongside engineering, I maintain a strong research foundation in representation learning and model behavior, which informs how I design and optimize systems beyond surface-level performance.
+                        I also contribute to research and teaching, with interests spanning representation learning, evaluation, and physics-inspired methods for robust AI systems.
                     </p>
                 </div>
                 <div class="about__highlights">
                     <div class="highlight-card">
                         <i class="fas fa-brain"></i>
-                        <h3>ML &amp; AI</h3>
-                        <p>End-to-end model development, from data wrangling to deployment</p>
+                        <h3>ML &amp; AI Systems</h3>
+                        <p>Production ML pipelines, retrieval systems, and LLM applications</p>
                     </div>
                     <div class="highlight-card">
                         <i class="fas fa-language"></i>
-                        <h3>NLP</h3>
-                        <p>Text analytics, LLMs, transformers, and information extraction</p>
+                        <h3>NLP &amp; Retrieval</h3>
+                        <p>RAG, ranking, semantic search, and model evaluation</p>
                     </div>
                     <div class="highlight-card">
-                        <i class="fas fa-wave-square"></i>
-                        <h3>Signal Processing</h3>
-                        <p>EEG analysis, time-series modeling, and neural signal pipelines</p>
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Signal Analysis</h3>
+                        <p>Time-series modeling, EEG pipelines, and frequency-aware processing</p>
                     </div>
                     <div class="highlight-card">
-                        <i class="fas fa-atom"></i>
-                        <h3>Quantum ML</h3>
-                        <p>Variational quantum circuits and hybrid quantum-classical models</p>
+                        <i class="fas fa-flask"></i>
+                        <h3>Research Engineering</h3>
+                        <p>Hybrid methods, experimentation, and reproducible systems research</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section class="section section--alt" id="skills">
         <div class="container">
             <h2 class="section__title">Technical Skills</h2>
@@ -97,10 +98,8 @@
                     <h3><i class="fas fa-code"></i> Languages</h3>
                     <ul class="skill-list">
                         <li>Python</li>
-                        <li>SQL & NoSQL</li>
+                        <li>SQL</li>
                         <li>R</li>
-                        <li>Rust</li>
-                        <li>C#</li>
                         <li>C++</li>
                         <li>Java</li>
                     </ul>
@@ -108,86 +107,78 @@
                 <div class="skill-category">
                     <h3><i class="fas fa-robot"></i> ML &amp; AI</h3>
                     <ul class="skill-list">
-                        <li>Pandas / NumPy</li>
-                        <li>TensorFlow</li>
                         <li>PyTorch</li>
-                        <li>Scikit-learn</li>
-                        <li>Keras</li>
-                        <li>Hugging Face Transformers</li>
-                        <li>MNE - Signal Processing</li>
-                        <li>Retrival Augumented Generation - RAG</li>
+                        <li>Transformers</li>
+                        <li>XGBoost</li>
+                        <li>LightGCN</li>
+                        <li>QLoRA</li>
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h3><i class="fas fa-robot"></i> ML &amp; AI</h3>
+                    <h3><i class="fas fa-database"></i> Data &amp; Retrieval</h3>
                     <ul class="skill-list">
-                        <li>BERT / GPT / LLaMA / Claude</li>
-                        <li>spaCy / NLTK</li>
-                        <li>LangChain &amp; LangSmith</li>
-                        <li>NERs &amp; Entity Parsers</li>
-                        <li>Embeddings and Tockenization</li>
-                         <li>Language Models - LLMs/SLMs</li>
-                        <li>Retrival Augumented Generation - RAG</li>
                         <li>FAISS</li>
+                        <li>Pinecone</li>
+                        <li>Neo4j</li>
+                        <li>LangGraph</li>
+                        <li>LangChain</li>
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h3><i class="fas fa-database"></i> Data &amp; Cloud</h3>
+                    <h3><i class="fas fa-cloud"></i> Cloud &amp; Infra</h3>
                     <ul class="skill-list">
-                        <li>Azure / AWS / GCP</li>
-                        <li>Apache Spark</li>
+                        <li>AWS (Bedrock, SageMaker, EKS)</li>
                         <li>Docker</li>
                         <li>Kubernetes</li>
-                        <li>Distributed Systems - DDP &amp; SLURM</li>
-                        <li>REST APIs / FastAPI</li>
+                        <li>FastAPI</li>
+                        <li>DDP &amp; SLURM</li>
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h3><i class="fas fa-tools"></i> Tools</h3>
+                    <h3><i class="fas fa-microscope"></i> Observability</h3>
                     <ul class="skill-list">
-                        <li>Git / GitHub</li>
-                        <li>Jupyter Notebooks</li>
-                        <li>Matplotlib / Seaborn</li>
-                        <li>Unity (C#)</li>
-                        <li>Linux / Bash</li>
+                        <li>MLflow</li>
+                        <li>Weights &amp; Biases</li>
+                        <li>A/B Testing</li>
+                        <li>Evaluation Pipelines</li>
+                        <li>Latency &amp; Cost Profiling</li>
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h3><i class="fas fa-atom"></i> Quantum</h3>
+                    <h3><i class="fas fa-lightbulb"></i> Applied AI</h3>
                     <ul class="skill-list">
-                        <li>Qiskit</li>
-                        <li>PennyLane</li>
-                        <li>Variational Quantum Circuits</li>
-                        <li>Quantum AI/NLP</li>
-                        <li>QLSTMs</li>
+                        <li>Agentic Workflows</li>
+                        <li>Reasoning Evaluation (CoT/ToT)</li>
+                        <li>Privacy-Preserving NLP</li>
+                        <li>Multimodal Processing</li>
+                        <li>Production Optimization</li>
                     </ul>
                 </div>
-            
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
     <section class="section" id="experience">
         <div class="container">
-            <h2 class="section__title">Experience</h2>
+            <h2 class="section__title">Work Experience</h2>
             <div class="timeline">
-
-                <!-- Work Experience -->
                 <div class="timeline__item">
                     <div class="timeline__marker"></div>
                     <div class="timeline__content">
-                        <span class="timeline__date">Jan 2024 — Present · New York, NY</span>
+                        <span class="timeline__date">Jan 2024 — Present</span>
                         <h3>AI/ML Engineer — Core Founding Team</h3>
-                        <p class="timeline__org">VervusAI, AI Consultants Inc</p>
+                        <p class="timeline__org">VervusAI / AI Consultants Inc</p>
                         <ul>
-                            <li>Built a Multi-Agent AI system automating real estate appraisals, bridging unstructured image/document data to structured valuation logic; reduced manual report turnaround from 5 hours to 1.25 hours — 75% faster enterprise-scale processing.</li>
-                            <li>Orchestrated multi-stage async agentic pipeline (OCR, multi-API ingestion, fraud forensics, compliance); designed session-aware FastAPI services with state-persistent retry logic and cross-user data isolation, reducing processing latency by 30%.</li>
-                            <li>Developed re-ranking pipeline for third-party APIs and historical data streams; trained NDCG-optimized XGBoost LTR model improving retrieval quality from 68% to 86% NDCG@10 for market-comparable property selections.</li>
-                            <li>Built multimodal CV/NLP forensic pipeline using Mask R-CNN and TrOCR for intelligent document parsing; flagged structural anomalies and record-data mismatches, preventing 8% of appraisals from compliance failures.</li>
-                            <li>Applied Chain-of-Thought (CoT) and Tree-of-Thought (ToT) reasoning evaluation; increased valuation precision from 76% to 93% on complex property-type logic, reducing hallucinations in multi-step reasoning.</li>
-                            <li>Engineered Docker + EKS deployment with HPA (2–20+ pods); optimized async job queue management reducing infrastructure costs by 25% while maintaining sub-100ms p99 inference latency.</li>
-                            <li style="list-style: none; margin-left: -1.2rem;"><strong>Stack:</strong> Docker, Kubernetes (EKS), FastAPI, PyTorch, Bedrock, Claude 3.5 Sonnet, GPT-4o, Mask R-CNN, TrOCR, XGBoost, LangGraph, AWS SageMaker</li>
+                            <li>Built multi-agent AI appraisal platform reducing report turnaround from 5 hours to 1.25 hours (75% improvement).</li>
+                            <li>Built async agentic workflows using OCR, fraud detection, compliance pipelines, FastAPI services, and state persistence.</li>
+                            <li>Reduced processing latency by 30%.</li>
+                            <li>Fine-tuned Qwen 3 using QLoRA for privacy-preserving document processing and PII masking.</li>
+                            <li>Built XGBoost learning-to-rank pipeline improving retrieval quality from 68% to 86% NDCG@10.</li>
+                            <li>Applied CoT and ToT reasoning evaluation improving valuation precision from 76% to 93%.</li>
+                            <li>Built Docker + EKS deployment with HPA scaling and reduced infrastructure costs by 25%.</li>
+                            <li>Reduced prompt token usage by 22% and inference costs by 19%.</li>
+                            <li>Improved generation throughput by 40%.</li>
+                            <li style="list-style: none; margin-left: -1.2rem;"><strong>Technology Stack:</strong> Docker, Kubernetes (EKS), FastAPI, PyTorch, Bedrock, Claude 3.5 Sonnet, GPT-4o, Qwen, QLoRA, Mask R-CNN, TrOCR, XGBoost, LangGraph, AWS SageMaker.</li>
                         </ul>
                     </div>
                 </div>
@@ -195,111 +186,109 @@
                 <div class="timeline__item">
                     <div class="timeline__marker"></div>
                     <div class="timeline__content">
-                        <span class="timeline__date">Jan 2021 — Aug 2022 · Bangalore, India</span>
-                        <h3>Machine Learning Engineer — Recommendation Analytics</h3>
+                        <span class="timeline__date">Jan 2021 — Aug 2022</span>
+                        <h3>Machine Learning Engineer</h3>
                         <p class="timeline__org">NovelTronix</p>
                         <ul>
-                            <li>Engineered a production CRM recommendation engine using session-based neural ranking, transforming customer interaction data into intent signals; achieved 14% increase in conversion rates for automated lifecycle management.</li>
-                            <li>Built recommendation engine with Transformers and LightGCN, vectorizing 10M+ user-item interactions; optimized bipartite graph embeddings achieving 18% NDCG@10 improvement over baseline filtering.</li>
-                            <li>Developed low-latency hybrid retrieval architecture combining FAISS-based ANN search with semantic keyword filtering; engineered multi-stage candidate generation pipeline maintaining sub-30ms inference latency for high-volume traffic.</li>
-                            <li>Designed rigorous A/B testing framework with Bayesian hypothesis testing and power analysis; validated 14% conversion rate increase across user cohorts with statistical significance.</li>
-                            <li>Synthesized CRM insights via Power BI dashboards performing multi-dimensional cohort analysis; converted behavioral data into actionable product strategies, driving 22% increase in long-term user retention.</li>
-                            <li style="list-style: none; margin-left: -1.2rem;"><strong>Stack:</strong> PyTorch, DDP, Transformers, LightGCN, FAISS, Neo4j, Redis, Apache Spark, AWS SageMaker, Weights &amp; Biases, MLflow</li>
+                            <li>Built CRM recommendation system increasing conversion rates by 14%.</li>
+                            <li>Built Transformer + LightGCN recommendation engine across 10M+ interactions.</li>
+                            <li>Improved NDCG@10 by 18%.</li>
+                            <li>Built FAISS hybrid retrieval system with semantic filtering.</li>
+                            <li>Maintained sub-30ms inference latency.</li>
+                            <li>Designed Bayesian A/B testing framework.</li>
+                            <li>Built adaptive re-ranking layer for session-based personalization.</li>
+                            <li style="list-style: none; margin-left: -1.2rem;"><strong>Technology Stack:</strong> PyTorch, DDP, Transformers, LightGCN, FAISS, Neo4j, Redis, Apache Spark, AWS SageMaker, MLflow, Weights &amp; Biases.</li>
                         </ul>
                     </div>
                 </div>
-
-                <!-- Research Experience -->
-                <div class="timeline__item">
-                    <div class="timeline__marker timeline__marker--research"></div>
-                    <div class="timeline__content">
-                        <span class="timeline__date">Jan 2024 — Jul 2025 · Bloomington, IN</span>
-                        <h3>Research Associate — <a href="https://nlp-lab.org/" target="_blank" rel="noopener noreferrer">NLP Lab</a></h3>
-                        <p class="timeline__org">Indiana University</p>
-                        <ul>
-                            <li>Developed a hybrid Graph-RAG framework synchronizing structured ontologies with dense vector stores; improved multi-hop reasoning accuracy from 65% to 85% while reducing hallucinations in complex knowledge retrieval with 15+ hops.</li>
-                            <li>Maximized compute efficiency on A100 GPU clusters with distributed training workflows; optimized PyTorch DDP and SLURM configurations for LLaMA fine-tuning, achieving 45% Model FLOPs Utilization on multi-GPU setups.</li>
-                            <li>Optimized retrieval strategy for dense knowledge stores; benchmarked vector vs. hybrid architectures with 12% improvement in retrieval precision for production RAG pipelines.</li>
-                            <li>Automated hallucination tracking by building ML observability pipelines with MLflow and Weights &amp; Biases; monitored path consistency across multi-step, ontology-guided reasoning.</li>
-                            <li style="list-style: none; margin-left: -1.2rem;"><strong>Stack:</strong> LLaMA, Neo4j, Pinecone, Hybrid RAG, FAISS, PyTorch, LoRA, DDP, SLURM, MLflow, W&amp;B</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline__item">
-                    <div class="timeline__marker timeline__marker--research"></div>
-                    <div class="timeline__content">
-                        <span class="timeline__date">Sept 2019 — Jan 2021 · Karnataka, India</span>
-                        <h3>Research Assistant — <a href="https://www.ijisrt.com/traffic-sign-classification" target="_blank" rel="noopener noreferrer">Journal Paper</a></h3>
-                        <p class="timeline__org">Automation Lab, NHCE</p>
-                        <ul>
-                            <li>Applied advanced image preprocessing (histogram equalization, contrast normalization, geometric augmentation) to improve model robustness across lighting conditions, angles, and environmental noise.</li>
-                            <li>Built CNN trained on German traffic sign dataset using TensorFlow and Keras; improved baseline accuracy from 78% to 95% through transfer learning and hyperparameter tuning for real-time inference.</li>
-                            <li>Designed real-time driver alert system with confidence-based thresholding to notify users of unrecognized or non-compliant traffic signs.</li>
-                            <li style="list-style: none; margin-left: -1.2rem;"><strong>Stack:</strong> TensorFlow, Keras, OpenCV, CNNs, Transfer Learning</li>
-                        </ul>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <section class="section section--alt" id="research-experience">
+        <div class="container">
+            <h2 class="section__title">Research Experience</h2>
+            <div class="timeline">
+                <div class="timeline__item">
+                    <div class="timeline__marker timeline__marker--research"></div>
+                    <div class="timeline__content">
+                        <span class="timeline__date">May 2024 — Jul 2025</span>
+                        <h3>Research Associate</h3>
+                        <p class="timeline__org">Indiana University</p>
+                        <ul>
+                            <li>Built hybrid Graph-RAG architecture combining Neo4j ontologies and Pinecone vectors.</li>
+                            <li>Improved multi-hop reasoning accuracy from 65% to 85%.</li>
+                            <li>Optimized PyTorch DDP and SLURM workflows on A100 clusters.</li>
+                            <li>Achieved 45% MFU during LLaMA fine-tuning.</li>
+                            <li>Improved retrieval precision by 12%.</li>
+                            <li>Built observability pipelines using MLflow and Weights &amp; Biases.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline__item">
+                    <div class="timeline__marker timeline__marker--research"></div>
+                    <div class="timeline__content">
+                        <span class="timeline__date">Sept 2019 — Jan 2021</span>
+                        <h3>Research Assistant</h3>
+                        <p class="timeline__org">Automation Lab, NHCE</p>
+                        <ul>
+                            <li>Built traffic sign recognition system using TensorFlow and Keras.</li>
+                            <li>Improved accuracy from 78% to 95%.</li>
+                            <li>Applied image preprocessing, augmentation, and robustness techniques.</li>
+                            <li>Developed real-time driver alert logic for traffic sign recognition.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="teaching">
+        <div class="container">
+            <h2 class="section__title">Teaching &amp; Mentorship</h2>
+            <div class="timeline">
+                <div class="timeline__item">
+                    <div class="timeline__marker"></div>
+                    <div class="timeline__content">
+                        <span class="timeline__date">May 2024 — Jul 2025</span>
+                        <h3>Associate Instructor</h3>
+                        <p class="timeline__org">Indiana University</p>
+                        <ul>
+                            <li>Served as Associate Instructor for Applied Machine Learning.</li>
+                            <li>Taught supervised learning, neural networks, computer vision, and NLP using PyTorch.</li>
+                            <li>Covered feature engineering, evaluation metrics, optimization, clustering, regression, and classification.</li>
+                            <li>Supported hands-on projects, debugging, implementation guidance, and student mentoring.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="section section--alt" id="projects">
         <div class="container">
             <h2 class="section__title">Projects</h2>
-            <div class="projects__featured">
-    <article class="project-card project-card--featured">
-        <div class="project-card__header">
-            <i class="fas fa-briefcase"></i>
-            <div class="project-card__links">
-                <a href="https://github.com/koushik16" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
-        <h3 class="project-card__title">RAG-Based Career Recommendation Engine</h3>
-        <p class="project-card__desc">
-            <span class="label">Data:</span> 17K+ job postings scraped from platforms like LinkedIn with structured and unstructured job attributes.<br>
-            <span class="label">Problem:</span> Build a semantic career recommendation system beyond keyword-based job search.<br>
-            <span class="label">Approach:</span> Developed a hybrid RAG pipeline using FAISS, LangChain, and LLMs with vector retrieval and structured signals for contextual matching.<br>
-            <span class="label">Impact:</span> Improved retrieval relevance by 28% (MRR/NDCG), achieved 10x faster query efficiency, and reduced context usage by ~35%.
-        </p>
-        <ul class="project-card__tags">
-            <li>RAG</li>
-            <li>FAISS</li>
-            <li>LangChain</li>
-            <li>FastAPI</li>
-            <li>LLMs</li>
-            <li>Semantic Search</li>
-        </ul>
-    </article>
-
-    <article class="project-card project-card--featured">
-        <div class="project-card__header">
-            <i class="fas fa-wave-square"></i>
-            <div class="project-card__links">
-                <a href="https://github.com/koushik16/eeg-seizure-detection-brain-signal-analysis" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
-        <h3 class="project-card__title">EEG Seizure Detection</h3>
-        <p class="project-card__desc">
-            <span class="label">Data:</span> CHB-MIT (PhysioNet) clinical EEG dataset (~42GB, multi-patient recordings with seizure annotations).<br>
-            <span class="label">Problem:</span> Detect seizure events from highly imbalanced EEG signals (~0.5% positive rate).<br>
-            <span class="label">Approach:</span> Built an MNE-based preprocessing and windowing pipeline over ~500K+ segments with deep learning for temporal pattern learning.<br>
-            <span class="label">Impact:</span> Improved rare-event detection sensitivity under severe class imbalance while maintaining low-latency inference.
-        </p>
-        <ul class="project-card__tags">
-            <li>Signal Processing</li>
-            <li>MNE-Python</li>
-            <li>Deep Learning</li>
-            <li>Time Series</li>
-            <li>Healthcare AI</li>
-        </ul>
-    </article>
-</div>
-
-<h3 class="projects__subtitle">Other Projects</h3>
             <div class="projects__grid">
+                <article class="project-card">
+                    <div class="project-card__header">
+                        <i class="fas fa-briefcase"></i>
+                        <div class="project-card__links">
+                            <a href="https://github.com/koushik16" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-card__title">Career Recommendation System (RAG)</h3>
+                    <p class="project-card__desc">
+                        Built a RAG-based career recommendation engine over 17k+ jobs with semantic retrieval and ranking pipelines. Improved recommendation relevance by 28% NDCG and maintained &lt;300ms latency for interactive retrieval.
+                    </p>
+                    <ul class="project-card__tags">
+                        <li>RAG</li>
+                        <li>FAISS</li>
+                        <li>Ranking</li>
+                        <li>FastAPI</li>
+                    </ul>
+                </article>
+
                 <article class="project-card">
                     <div class="project-card__header">
                         <i class="fas fa-dna"></i>
@@ -307,238 +296,148 @@
                             <a href="https://github.com/koushik16/Synergy-Estimation-for-Cancer-Drugs" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
-                    <h3 class="project-card__title">Cancer Drug Synergy Prediction</h3>
+                    <h3 class="project-card__title">Drug Synergy Modeling with Graph Neural Networks</h3>
                     <p class="project-card__desc">
-                        Neural network model predicting cancer drug synergy with 90.81% AUC using the NCI ALMANAC dataset, autoencoders, and ensemble methods.
+                        Combined GNN-based features with classical predictive models for drug-combination response estimation. Achieved 36% MSE improvement and 0.73 Pearson correlation on synergy prediction benchmarks.
                     </p>
                     <ul class="project-card__tags">
-                        <li>Deep Learning</li>
-                        <li>Autoencoders</li>
-                        <li>Bioinformatics</li>
+                        <li>GNNs</li>
+                        <li>PyTorch</li>
+                        <li>BioML</li>
+                        <li>Ensembles</li>
                     </ul>
                 </article>
 
                 <article class="project-card">
                     <div class="project-card__header">
-                        <i class="fas fa-search"></i>
+                        <i class="fas fa-wave-square"></i>
                         <div class="project-card__links">
-                            <a href="https://github.com/koushik16/Drug-Rag" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/koushik16/eeg-seizure-detection-brain-signal-analysis" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
-                    <h3 class="project-card__title">Drug Research RAG Application</h3>
+                    <h3 class="project-card__title">EEG Seizure Detection (CNN-LSTM)</h3>
                     <p class="project-card__desc">
-                        AI-powered Retrieval-Augmented Generation application to answer complex research questions from biomedical literature.
+                        Built an EEG detection pipeline on CHB-MIT using 550K+ windows with highly imbalanced labels (&lt;0.5% positive class). Optimized for rare-event performance and achieved 95% recall.
                     </p>
                     <ul class="project-card__tags">
-                        <li>RAG</li>
-                        <li>LLMs</li>
-                        <li>LangChain</li>
+                        <li>CNN-LSTM</li>
+                        <li>EEG</li>
+                        <li>Time Series</li>
+                        <li>Healthcare AI</li>
                     </ul>
                 </article>
-
-                <article class="project-card">
-                    <div class="project-card__header">
-                        <i class="fas fa-atom"></i>
-                        <div class="project-card__links">
-                            <a href="https://github.com/koushik16/Regression-with-Variational-Quantum-Circuits-Higher-Dimention" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <h3 class="project-card__title">Quantum Regression with VQC</h3>
-                    <p class="project-card__desc">
-                        Hybrid quantum-classical regression using Variational Quantum Circuits with angle embeddings and JAX/Optax optimization.
-                    </p>
-                    <ul class="project-card__tags">
-                        <li>Quantum ML</li>
-                        <li>PennyLane</li>
-                        <li>JAX</li>
-                    </ul>
-                </article>
-
-                <article class="project-card">
-                    <div class="project-card__header">
-                        <i class="fas fa-home"></i>
-                        <div class="project-card__links">
-                            <a href="https://github.com/koushik16/real-estate-api" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <h3 class="project-card__title">Real Estate API</h3>
-                    <p class="project-card__desc">
-                        RESTful API for real estate data with prediction capabilities, built with Python and modern web frameworks.
-                    </p>
-                    <ul class="project-card__tags">
-                        <li>Python</li>
-                        <li>REST API</li>
-                        <li>Backend</li>
-                    </ul>
-                </article>
-
-                <article class="project-card">
-                    <div class="project-card__header">
-                        <i class="fas fa-road"></i>
-                        <div class="project-card__links">
-                            <a href="https://github.com/koushik16/Traffic-Sign-Classification" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <h3 class="project-card__title">Traffic Sign Classification</h3>
-                    <p class="project-card__desc">
-                        CNN-based traffic sign recognition achieving 94.23% accuracy with a Text-to-Speech accessibility feature using Google gTTS.
-                    </p>
-                    <ul class="project-card__tags">
-                        <li>CNN</li>
-                        <li>Computer Vision</li>
-                        <li>TensorFlow</li>
-                    </ul>
-                </article>
-
             </div>
         </div>
     </section>
 
-    <!-- Research Section -->
     <section class="section" id="research">
         <div class="container">
-            <h2 class="section__title">Research</h2>
+            <h2 class="section__title">Research: Physics-Inspired AI Systems</h2>
             <div class="research__content">
                 <p class="research__text">
-                    My research explores how quantum computing methods can be used to represent and analyze language and machine learning embeddings. I work on hybrid classical-quantum approaches where classical embeddings are encoded into quantum states, compared using quantum similarity measures, and studied through Hamiltonian-based representations. The goal is to understand whether quantum formalisms can reveal deeper structure in semantic representations and support future quantum-aware AI systems.
+                    My research explores physics-inspired representations for AI systems, including Hamiltonian-based formulations, embedding geometry, semantic similarity, and hybrid classical-quantum methods. I study how mathematical structures from physics can help analyze language embeddings, improve representation quality, and support more robust reasoning in AI systems. This direction connects my work in NLP, retrieval, and quantum-aware machine learning without claiming immediate quantum advantage.
                 </p>
-                <div class="research__actions">
-                    <a href="https://scholar.google.com/citations?user=8wYya_sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="btn btn--outline">
-                        View full profile on Google Scholar
-                    </a>
-                </div>
             </div>
             <div class="publications">
-                <h3 class="publications__title" id="publications">Papers &amp; Publications</h3>
+                <h3 class="publications__title" id="publications">Publications</h3>
                 <div class="pub-list">
                     <div class="pub-card">
                         <p class="pub-card__title">Old Wine in New Bottles: Using Classical Word Embeddings in Gate-Based Quantum NLP Systems</p>
-                        <p class="pub-card__authors">Cavar, D., Parukola, K.R., Graves, J.B. and Sparks, S.A.</p>
-                        <p class="pub-card__venue">Quantum AI and NLP (QNLPAI 2025), CCIS vol. 2659 · Springer, Cham · 2026</p>
-                        <div class="pub-card__footer">
-                            <a href="https://link.springer.com/chapter/10.1007/978-3-032-13883-5_9" target="_blank" rel="noopener noreferrer" class="pub-card__link"><i class="fas fa-external-link-alt"></i> Springer</a>
-                        </div>
+                        <p class="pub-card__venue">QNLPAI / Springer · 2026</p>
                     </div>
                     <div class="pub-card">
-                        <p class="pub-card__title">Hybrid Classical Quantum Embeddings for NLP and AI Using Hamiltonians</p>
-                        <p class="pub-card__authors">Cavar, D., Graves, J.B., Sparks, S.A. and Parukola, K.R.</p>
-                        <p class="pub-card__venue">IEEE International Conference on Quantum Computing and Engineering (QCE) · Albuquerque, NM · 2025</p>
-                        <div class="pub-card__footer">
-                            <a href="https://ieeexplore.ieee.org/abstract/document/11250036" target="_blank" rel="noopener noreferrer" class="pub-card__link"><i class="fas fa-external-link-alt"></i> IEEE Xplore</a>
-                        </div>
+                        <p class="pub-card__title">Hybrid Classical Quantum Embeddings for AI Using Hamiltonians</p>
+                        <p class="pub-card__venue">IEEE QCE · 2025</p>
                     </div>
                     <div class="pub-card">
                         <p class="pub-card__title">Word and Text Similarity Using Classical Word Embeddings in Quantum Systems</p>
-                        <p class="pub-card__authors">Cavar, D. and Parukola, K.R.</p>
-                        <p class="pub-card__venue">IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP) · 2025</p>
-                        <div class="pub-card__footer">
-                            <a href="https://ieeexplore.ieee.org/abstract/document/11010999" target="_blank" rel="noopener noreferrer" class="pub-card__link"><i class="fas fa-external-link-alt"></i> IEEE Xplore</a>
-                        </div>
+                        <p class="pub-card__venue">IEEE ICASSP · 2025</p>
                     </div>
                     <div class="pub-card">
                         <p class="pub-card__title">Traffic Sign Classification Using Deep Learning</p>
-                        <p class="pub-card__authors">Parukola, K.R. et al.</p>
-                        <p class="pub-card__venue">International Journal of Innovative Science and Research Technology (IJISRT) · Vol. 6, Issue 6 · June 2021</p>
-                        <div class="pub-card__footer">
-                            <a href="https://www.ijisrt.com/traffic-sign-classification" target="_blank" rel="noopener noreferrer" class="pub-card__link"><i class="fas fa-external-link-alt"></i> IJISRT</a>
-                        </div>
+                        <p class="pub-card__venue">IJISRT · 2021</p>
                     </div>
                 </div>
                 <p class="research__scholar">
-                    <a href="https://scholar.google.com/citations?user=8wYya_sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">View full profile on Google Scholar →</a>
+                    <a href="https://scholar.google.com/citations?user=8wYya_sAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">View Full Google Scholar Profile</a>
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Articles Section -->
     <section class="section section--alt" id="articles">
         <div class="container">
             <h2 class="section__title">Articles</h2>
             <p class="articles__intro">
-                Articles and technical notes coming soon. I plan to write about ML systems, applied AI research, model evaluation, and research engineering workflows.
+                Technical articles and research notes coming soon. Topics will include ML systems, applied AI, model evaluation, and research engineering workflows.
             </p>
             <div class="articles__grid">
                 <div class="article-card">
                     <span class="article-card__badge">Coming Soon</span>
-                    <h3 class="article-card__title">Evaluating Retrieval in Production RAG Systems</h3>
-                    <p class="article-card__desc">A deep dive into metrics, failure modes, and practical evaluation strategies for retrieval-augmented generation pipelines in real-world deployments.</p>
-                    <span class="article-card__tags"># ML Systems · RAG · Evaluation</span>
+                    <h3 class="article-card__title">ML Systems Notes</h3>
+                    <p class="article-card__desc">In-progress notes on practical system design, retrieval quality, serving constraints, and production model lifecycle decisions.</p>
+                    <span class="article-card__tags"># ML Systems</span>
                 </div>
                 <div class="article-card">
                     <span class="article-card__badge">Coming Soon</span>
-                    <h3 class="article-card__title">Quantum Representations for Classical NLP</h3>
-                    <p class="article-card__desc">Notes on encoding classical word embeddings into quantum states and what that structure might tell us about semantic similarity and language geometry.</p>
-                    <span class="article-card__tags"># Quantum NLP · Research</span>
+                    <h3 class="article-card__title">Applied AI Research</h3>
+                    <p class="article-card__desc">Research-focused write-ups connecting experimental findings with deployable engineering patterns for applied AI teams.</p>
+                    <span class="article-card__tags"># Applied AI</span>
                 </div>
                 <div class="article-card">
                     <span class="article-card__badge">Coming Soon</span>
-                    <h3 class="article-card__title">Inference Cost vs. Quality Trade-offs at Scale</h3>
-                    <p class="article-card__desc">Practical notes on balancing model quality, latency, and token cost when building AI systems that serve real users under resource constraints.</p>
-                    <span class="article-card__tags"># AI Engineering · LLMs</span>
+                    <h3 class="article-card__title">Model Evaluation</h3>
+                    <p class="article-card__desc">Evaluation workflows covering ranking quality, robustness checks, error analysis, and signal-based monitoring in production.</p>
+                    <span class="article-card__tags"># Evaluation</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Certifications Section -->
     <section class="section" id="certifications">
         <div class="container">
             <h2 class="section__title">Certifications</h2>
             <div class="certs__grid">
                 <div class="cert-card">
                     <i class="fab fa-amazon"></i>
-                    <h3>AWS AI/ML Scholar &amp; AI Practitioner</h3>
-                    <p>Machine Learning &amp; AI Services on AWS</p>
-                    <a href="https://www.credly.com/badges/db5826e9-9425-4976-8598-d2c91231b94c/public_url" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                    <h3>AWS AI/ML Scholar</h3>
+                    <p>AWS</p>
+                </div>
+                <div class="cert-card">
+                    <i class="fab fa-amazon"></i>
+                    <h3>AWS AI Practitioner</h3>
+                    <p>AWS</p>
                 </div>
                 <div class="cert-card">
                     <i class="fas fa-shield-alt"></i>
                     <h3>AI Safety: Risks and Compliance</h3>
                     <p>Linux Foundation</p>
-                    <a href="https://koushik16.github.io/website/#certifications" target="_blank" rel="noopener noreferrer">View Certificate</a>
                 </div>
                 <div class="cert-card">
                     <i class="fas fa-server"></i>
                     <h3>Scientific Parallel Computing</h3>
-                    <p>UIUC, Pittsburgh Supercomputing Center (PSC), NCSA</p>
-                    <a href="https://koushik16.github.io/website/#certifications" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                    <p>UIUC, PSC, NCSA</p>
                 </div>
                 <div class="cert-card">
                     <i class="fas fa-robot"></i>
-                    <h3>Advanced Topics in AI Fluency</h3>
-                    <p>Anthropic Academy — Model Context Protocol (MCP)</p>
-                    <a href="https://koushik16.github.io/website/#certifications" target="_blank" rel="noopener noreferrer">View Certificate</a>
-                </div>
-                <div class="cert-card">
-                    <i class="fas fa-atom"></i>
-                    <h3>IBM Quantum Challenge 2024</h3>
-                    <p>Entanglement, Transpilers, Circuit Knitting, VQEs</p>
-                    <a href="https://www.credly.com/badges/d932cbc3-d2f9-4e32-8182-6b3096fbc016/public_url" target="_blank" rel="noopener noreferrer">View Certificate</a>
-                </div>
-                <div class="cert-card">
-                    <i class="fab fa-microsoft"></i>
-                    <h3>Microsoft Azure Fundamentals</h3>
-                    <p>Cloud solutions &amp; data management on Azure</p>
-                    <a href="https://www.credly.com/badges/ffbecdc3-432d-4084-a07e-0366b12f504e/public_url" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                    <h3>Advanced Topics in AI Fluency (MCP)</h3>
+                    <p>Anthropic Academy</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section class="section section--alt" id="contact">
         <div class="container">
             <h2 class="section__title">Get in Touch</h2>
             <div class="contact__content">
                 <p class="contact__text">
-                    I'm always open to discussing new opportunities, collaborations, or interesting projects.
-                    Feel free to reach out!
+                    I’m open to opportunities, collaborations, and research conversations. Feel free to reach out.
                 </p>
                 <div class="contact__cards">
-                    <a href="mailto:koushik.r.parukola@gmail.com" class="contact-card">
+                    <a href="mailto:parukolakoushik@gmail.com" class="contact-card">
                         <i class="fas fa-envelope"></i>
-                        <span>koushik.r.parukola@gmail.com</span>
+                        <span>parukolakoushik@gmail.com</span>
                     </a>
                     <a href="https://www.linkedin.com/in/koushik-reddy-parukola/" target="_blank" rel="noopener noreferrer" class="contact-card">
                         <i class="fab fa-linkedin-in"></i>
@@ -553,12 +452,18 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Koushik Reddy Parukola. All rights reserved.</p>
+            <p>&copy; 2026 Koushik Reddy Parukola. All rights reserved.</p>
         </div>
     </footer>
+
+    <a
+        href="#articles"
+        class="updates-badge"
+        title="New updates coming soon: articles, project deep-dives, research notes, and technical write-ups."
+        aria-label="updates.log"
+    >updates.log</a>
 
     <script src="js/main.js"></script>
 </body>
